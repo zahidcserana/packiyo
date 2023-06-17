@@ -1,0 +1,133 @@
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .loginForm {
+        margin-bottom: 2rem;
+    }
+    .g-navbar-search-shown .navbar-search {
+        .input-group {
+            width: 87%;
+        }
+    }
+    .warehouseForm, .locationForm {
+        .w-50 {
+            width: 98% !important;
+        }
+    }
+    .searchSelect {
+        &.w-50 {
+            width: 98% !important;
+        }
+    }
+
+    .formsContainer {
+        .smallForm {
+            label {
+                text-align: left;
+                margin-right: 15px;
+            }
+            input, select {
+                overflow-x: scroll;
+                overflow-y: hidden;
+                width: 100%;
+            }
+            &.editable {
+                input, select {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    .borderOrange, .resetButton{
+        padding: .625rem .2rem;
+    }
+    .p-custom-radio {
+        &.custom-radio {
+            text-align: left;
+            vertical-align: inherit;
+            line-height: 30px;
+            margin-bottom: 5px;
+            .custom-control-input {
+                &~.custom-control-label {
+                    &::before {
+                        //
+                    }
+                    &:after {
+                        //
+                    }
+                }
+            }
+        }
+    }
+}
+
+//// Small devices (landscape phones, less than 768px)
+//@media (max-width: 767.98px) {
+//    #submit_print_container>div:first-child>i:nth-child(2) {
+//        display: block !important;
+//    }
+//    #submit_print_container>div:nth-child(2)>a{
+//        display: none !important;
+//    }
+//}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+
+}
+
+.base-ajax {
+    form {
+        .row {
+            margin-left: -30px;
+            margin-right: -30px;
+        }
+    }
+
+    label {
+        color: #6F767E !important;
+        font-size: 14px;
+        font-weight: 600 !important;
+    }
+
+    .base-ajax-section, .base-ajax-noneditable-section {
+        padding-bottom: 30px;
+    }
+
+    .input-group {
+        border: none !important;
+    }
+
+    .dropzone button[disabled] {
+        cursor: initial !important;
+    }
+
+    .dropzone {
+        margin: 0;
+        padding: 0;
+    }
+
+    .custom-form-checkbox input[type=checkbox][disabled] + label {
+        cursor: unset;
+    }
+
+    form {
+        &[method="POST"] {
+            .section-icons {
+                display: none !important;
+            }
+        }
+
+
+    }
+}

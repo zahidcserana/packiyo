@@ -1,0 +1,236 @@
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .navbar-header-logo {
+        display: none;
+    }
+}
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .navbar {
+        &.navbar-top-main {
+            padding-top: .5rem !important;
+            padding-bottom: .5rem !important;
+        }
+    }
+
+    .g-navbar-search-show {
+        .navbar-search {
+            .close {
+                height: 60px;
+                width: 50px;
+            }
+        }
+    }
+
+    .g-navbar-search-show.g-navbar-search-shown {
+        .search-fixed {
+            top: 0;
+            .navbar-nav-custom {
+                display: none;
+            }
+        }
+    }
+
+    .search-fixed {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        .navbar-nav-custom {
+            width: 45px;
+            height: 45px;
+            background: $logoOrange;
+            opacity: 0.5;
+            transition: 0.3s;
+            border-radius: 5px;
+            margin: .5rem;
+            .nav-item, .nav-link {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .navbar {
+            // opacity: 0.5;
+            transition: 0.3s;
+            background: $logoOrange;
+        }
+    }
+
+    .nav-wrapper {
+        .nav {
+            flex-wrap: initial;
+            overflow: scroll;
+            &.nav-pills {
+                .nav-item {
+
+                }
+            }
+            &.nav-fill {
+                .nav-item {
+
+                }
+            }
+            .nav-item {
+                flex-shrink: 0 !important;
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    // Dashboard
+    .navbar-search {
+        padding: .3rem;
+    }
+
+    .navbar-nav, .navbar-nav-custom {
+        &.border-left {
+            border-left: none !important;
+        }
+    }
+
+    .navbar-nav-custom {
+        .sidenav-toggler {
+            width: 40px;
+        }
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .navbar-header-logo {
+        flex: 1 1 50%;
+        text-align: center;
+        .navbar-brand {
+            margin-right: 0;
+        }
+    }
+
+    .avatar-custom {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dropup.dropup-right {
+        .dropdown-menu {
+            left: 0;
+        }
+    }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    // Homepage
+    .navbar-toggler {
+        display: none;
+    }
+    .navbar-horizontal {
+        .navbar-brand {
+            flex: 1;
+            img {
+                margin: auto;
+                display: block;
+            }
+        }
+    }
+    // Dashboard
+    .g-sidenav-hidden {
+        .navbar-vertical.navbar-expand-xs.fixed-left.fixed-left {
+            max-width: 65px;
+        }
+    }
+
+    .g-navbar-search-show.g-navbar-search-shown {
+        .search_top_container {
+            .navbar-search {
+                display: none;
+            }
+        }
+    }
+
+    .avatar-custom {
+        width: 45px;
+        height: 45px;
+    }
+
+    .sidenav-toggler-line {
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
+        width: 28px;
+    }
+
+    .navbar-nav-custom {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding-left: 0;
+        .sidenav-toggler {
+            margin-right: 10px;
+            width: 30px;
+        }
+    }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+    .sidenav-toggler-line {
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
+        width: 28px;
+    }
+
+    .navbar-nav-custom {
+        list-style: none;
+        .sidenav-toggler {
+            margin-right: 10px;
+            width: 30px;
+        }
+    }
+    .g-sidenav-show {
+        &.g-sidenav-pinned {
+            .nav-fixed-settings {
+                display: none;
+            }
+        }
+    }
+    .nav-fixed-settings {
+        z-index: 2;
+        left: 15px;
+        bottom: 8px;
+        .nax-settings-icon {
+
+        }
+        .dropup {
+            .dropdown-toggle {
+                width: 45px;
+                height: 45px;
+                background: #F7860B;
+                opacity: 0.5;
+                transition: 0.3s;
+                border-radius: 5px;
+                svg path {
+                    fill: $formWhite;
+                }
+            }
+            .dropdown-menu {
+                overflow: scroll;
+                max-height: 250px;
+            }
+            position: inherit;
+        }
+    }
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+
+}

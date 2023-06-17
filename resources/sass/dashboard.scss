@@ -1,0 +1,349 @@
+.widgets-container {
+    padding: 0;
+    margin: -15px 0 15px;
+
+    @media (max-width: 895px) {
+        margin: 0;
+        padding: 0 15px;
+    }
+
+    .grid-stack {
+        .grid-stack-item-content {
+            inset: 15px !important;
+        }
+        #purchase-orders-received {
+            tr {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.sts-pending {
+    background-color: $status_pending;
+}
+
+.sts-fulfilled {
+    background-color: $status_fulfilled;
+}
+
+.sts-cancelled {
+    background-color: $status_cancelled;
+}
+
+.sts-priority {
+    background-color: $status_priority;
+}
+
+.sts-backorder {
+    background-color: $status_backorder
+}
+
+.sts-on-hold {
+    background-color: $status_on_hold;
+}
+
+.sts {
+    background: #fff;
+
+    &.btn-custom {
+    &:before {
+         content: '';
+         height: 8px;
+         width: 8px;
+         border-radius: 50px;
+         background: #66666620;
+         left: 45px;
+         bottom: 15px;
+         position: absolute;
+     }
+
+    &:after {
+         content: '';
+         height: 12px;
+         width: 12px;
+         border-radius: 50px;
+         background: #66666620;
+         right: 25px;
+         bottom: 15px;
+         position: absolute;
+     }
+
+    .row {
+    &:before {
+         content: '';
+         height: 10px;
+         width: 10px;
+         border-radius: 50px;
+         background: #66666620;
+         left: 50%;
+         margin: 0 0 0 -5px;
+         top: 15px;
+         position: absolute;
+     }
+    }
+    }
+
+    i {
+        color: #666666;
+        background: #66666620;
+        font-size: 40px;
+        padding: 20px;
+        border-radius: 5px;
+
+        @media (max-width: 600px) {
+            padding: 15px;
+            font-size: 30px;
+        }
+    }
+
+    &.card-sts {
+        i {
+            font-size: 20px;
+            padding: 10px;
+            margin: -7px 0px;
+            display: block;
+        }
+    }
+
+    &.sts-pending {
+        i {
+            color: $status_pending;
+            background: rgba($status_pending, 0.15);
+        }
+
+        &:before {
+             background: rgba($status_pending, 0.15);
+         }
+
+        &:after {
+             background: rgba($status_pending, 0.65);
+         }
+
+        .row {
+        &:before {
+             background: rgba($status_pending, 0.35);
+         }
+        }
+    }
+
+    &.sts-fulfilled {
+        i {
+            color: $status_fulfilled;
+            background: rgba($status_fulfilled, 0.15);
+        }
+
+        &:before {
+             background: rgba($status_fulfilled, 0.15);
+         }
+
+        &:after {
+             background: rgba($status_fulfilled, 0.65);
+         }
+
+        .row {
+            &:before {
+                 background: rgba($status_fulfilled, 0.35);
+             }
+        }
+    }
+
+    &.sts-cancelled {
+        i {
+            color: $status_cancelled;
+            background: rgba($status_cancelled, 0.15);
+        }
+
+        &:before {
+             background: rgba($status_cancelled, 0.15);
+         }
+
+        &:after {
+             background: rgba($status_cancelled, 0.65);
+         }
+
+        .row {
+            &:before {
+                 background: rgba($status_cancelled, 0.35);
+             }
+        }
+    }
+
+    &.sts-priority {
+    i {
+        color: $status_priority;
+        background: rgba($status_priority, 0.15);
+    }
+
+    &:before {
+         background: rgba($status_priority, 0.15);
+     }
+
+    &:after {
+         background: rgba($status_priority, 0.65);
+     }
+
+    .row {
+    &:before {
+         background: rgba($status_priority, 0.35);
+     }
+    }
+    }
+
+    &.sts-backorder {
+    i {
+        color: $status_backorder;
+        background: rgba($status_backorder, 0.15);
+    }
+
+    &:before {
+         background: rgba($status_backorder, 0.15);
+     }
+
+    &:after {
+         background: rgba($status_backorder, 0.65);
+     }
+
+    .row {
+    &:before {
+         background: rgba($status_backorder, 0.35);
+     }
+    }
+    }
+
+    &.sts-on-hold {
+        i {
+            color: $status_on_hold;
+            background: rgba($status_on_hold, 0.15);
+        }
+
+        &:before {
+             background: rgba($status_on_hold, 0.15);
+         }
+
+        &:after {
+             background: rgba($status_on_hold, 0.65);
+         }
+
+        .row {
+            &:before {
+                 background: rgba($status_on_hold, 0.35);
+             }
+        }
+    }
+
+    strong {
+        font-size: 30px;
+    }
+
+    p {
+        font-weight: 400;
+        text-transform: none;
+    }
+}
+
+
+.country-list, .city-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 1;
+    background: rgba(255,255,255,0.85);
+    height: 100%;
+
+    div {
+        vertical-align: top;
+        display: block;
+        margin: 0 0 10px;
+
+        span {
+            line-height: 40px;
+            width: 40px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        i {
+            display: inline-block;
+            vertical-align: top;
+            margin: 12px 0 0 8px;
+        }
+
+        a {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 8px 0 0 8px;
+        }
+    }
+}
+
+.country-list-selector {
+    max-width: 1100px;
+    margin: 0 auto;
+    .list-group {
+        overflow-y: auto;
+        height: 300px;
+        .list-group-item {
+            padding: 8px 16px;
+        }
+    }
+}
+
+.grid-stack-item-content{
+    overflow: hidden !important;
+}
+
+.custom-marker {
+    background: rgba(255,255,255,0.8);
+    padding: 10px 0;
+    border-radius: 12px;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+
+    strong {
+        margin: 5px 0 0;
+        font-family: Inter, serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    img {
+        margin: 4px 10px 0 -5px;
+        width: 30px;
+        border-radius: 2px;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &.default-cluster {
+        strong {
+            margin: -10px 0 0;
+        }
+
+        img {
+            margin: 0 10px 0 -5px;
+        }
+    }
+
+    &.custom-cluster {
+        strong {
+            margin: -10px 0 0;
+        }
+
+        img {
+            margin: 4px 10px 0 -5px
+        }
+    }
+}
+

@@ -1,0 +1,39 @@
+[
+    {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 350,
+        "sort": 1,
+        "content": "[widget_sales_info]"
+    },
+    {
+        "x": 6,
+        "y": 0,
+        "w": 6,
+        "h": 350,
+        "content": "[widget_top_selling_items]"
+    },
+    {
+        "x": 0,
+        "y": 200,
+        "w": 12,
+        "h": 370,
+        "content": "[widget_info_tabs]"
+    },
+    {
+        "x": 0,
+        "y": 500,
+        "w": 12,
+        "h": 470,
+        "content": "[widget_revenue_over_time]"
+    },
+    {
+        "x": 0,
+        "y": 1000,
+        "w": 12,
+        "h": 700,
+        "content": "[widget_order_by_country]"
+    }
+]
+

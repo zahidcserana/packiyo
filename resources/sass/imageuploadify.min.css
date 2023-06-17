@@ -1,0 +1,128 @@
+.imageuploadify {
+    position: relative;
+    min-height: 200px;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #F4F4F4;
+    color: #3AA0FF;
+    border-radius: 12px;
+}
+
+.imageuploadify .imageuploadify-overlay {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    display: none;
+    font-size: 7em;
+    background-color: rgba(242, 242, 242, .7);
+    text-align: center;
+    pointer-events: none
+}
+
+.imageuploadify .imageuploadify-overlay i {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none
+}
+
+.imageuploadify .imageuploadify-images-list {
+    display: flex;
+}
+
+.imageuploadify .imageuploadify-images-list i {
+    display: block;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: .5em;
+    padding-bottom: 12px;
+    position: absolute;
+    z-index: 10;
+    /*color: red;*/
+    right: 0;
+    top: -7px;
+    cursor: pointer;
+}
+
+.imageuploadify .imageuploadify-images-list span.imageuploadify-message {
+    font-size: 24px;
+    border-top: 1px solid #3AA0FF;
+    border-bottom: 1px solid #3AA0FF;
+    padding: 10px;
+    display: inline-block
+}
+
+.imageuploadify .imageuploadify-images-list button.btn-default {
+    display: block;
+    color: #3AA0FF;
+    border-color: #3AA0FF;
+    border-radius: 1em;
+    margin: 25px auto;
+    width: 100%;
+    max-width: 500px
+}
+
+.imageuploadify .imageuploadify-images-list .imageuploadify-container {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 4px 0 #888;
+    position: relative;
+    margin-left: 1em !important;
+}
+
+.imageuploadify .imageuploadify-images-list .imageuploadify-container img {
+    height: 100px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto
+}
+
+.imageuploadify .imageuploadify-images-list .imageuploadify-container .imageuploadify-details {
+    position: absolute;
+    top: 0;
+    padding-top: 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: rgba(255, 255, 255, .5);
+    z-index: 2;
+    opacity: 0
+}
+
+.imageuploadify .imageuploadify-images-list .imageuploadify-container .imageuploadify-details span {
+    display: block
+}
+
+.imageuploadify .upload-image-button {
+    background: white !important;
+    outline: none !important;
+    padding: 12px 20px !important;
+    color: #1A1D1F!important;
+    font-size: 15px;
+    line-height: 24px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid #EFEFEF;
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

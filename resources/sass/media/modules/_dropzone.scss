@@ -1,0 +1,82 @@
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+
+}
+////////////////////////////////////////////////////////
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .dropzone {
+        min-height: 60px;
+    }
+    #dropzone-body {
+        .dz-message {
+            background: transparent;
+            padding: 0;
+        }
+        .upload-image-button {
+            padding: 10px !important;
+        }
+    }
+    .dropzone-container{
+        display: block;
+
+        &>div {
+            width: 100%;
+        }
+
+        .dropzone {
+            margin: 0;
+        }
+    }
+
+    #previews {
+        min-height: 150px;
+        .dz-preview {
+            margin: 5px;
+            flex-direction: row;
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+
+}
+
+// XX-Large devices (larger desktops)
+// No media query since the xxl breakpoint has no upper bound on its width

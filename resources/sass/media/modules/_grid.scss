@@ -1,0 +1,202 @@
+// Small devices (landscape phones, 576px and 895px)
+@media (min-width: 576px) and (max-width: 895px) {
+    .widgets-container {
+        .grid-stack {
+            &.grid-stack-1 {
+                >.grid-stack-item {
+                    min-width: 31.6%;
+                }
+            }
+            .grid-stack-item {
+                width: 31.6% !important;
+                float: left;
+                margin: 0 .5rem .5rem 0;
+                &.widget_purchase_orders_coming_in,
+                &.widget_purchase_orders_received_quantity {
+                    width: 48.5% !important;
+                }
+                &.widget_order_by_country,
+                &.widget_revenue_over_time,
+                &.widget_orders_late,
+                &.widget_orders_late {
+                    width: 100% !important;
+                }
+                &.widget_order_by_country {
+                    height: 400px;
+                }
+                &.widget_orders_late {
+                    margin-bottom: 2rem;
+                }
+                // Sts
+                &.widget_orders_received,
+                &.widget_orders_shipped,
+                &.widget_returns,
+                &.widget_purchase_orders_coming_in,
+                &.widget_purchase_orders_received_quantity {
+                    height: 145px;
+                }
+                &.widget_order_by_country {
+                    .card-header {
+                        padding-left: 1.5rem;
+                    }
+                }
+                .card-header {
+                    padding-left: 0;
+                }
+                .text-left {
+                    strong {
+                        font-size: 80%;
+                    }
+                    p {
+                        font-size: 80%;
+                    }
+                }
+                .sts {
+                    i {
+                        padding: 12px;
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+}
+// Small devices (landscape phones, 800px and 895px)
+@media (min-width: 800px) and (max-width: 895px) {
+    .widgets-container {
+        padding: 0px 15px;
+        .grid-stack {
+            .grid-stack-item {
+                .text-left {
+                    strong {
+                        font-size: 95%;
+                    }
+                    p {
+                        font-size: 95%;
+                    }
+                }
+                .sts {
+                    i {
+                        padding: 12px;
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+}
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .widgets-container {
+        padding: 0px 15px;
+        .grid-stack {
+            &.grid-stack-1 {
+                >.grid-stack-item {
+                    min-width: 49%;
+                }
+            }
+            .grid-stack-item {
+                width: 49% !important;
+                float: left;
+                margin: 0 0 .5rem;
+                &.widget_order_by_country,
+                &.widget_revenue_over_time,
+                &.widget_orders_late {
+                    width: 100% !important;
+                }
+                &.widget_order_by_country {
+                    height: 370px;
+                }
+                &.widget_orders_late {
+                    height: 400px;
+                    margin-bottom: 2rem;
+                }
+                // Sts
+                &.widget_orders_received,
+                &.widget_orders_shipped,
+                &.widget_returns,
+                &.widget_purchase_orders_coming_in,
+                &.widget_purchase_orders_received_quantity {
+                    height: 120px;
+                }
+                &.widget_order_by_country {
+                    .card-header {
+                        padding-left: 1.5rem;
+                    }
+                }
+                .card-header {
+                    padding-left: 0;
+                    h3 {
+                        font-size: 1.0rem;
+                    }
+                }
+                .text-left {
+                    strong {
+                        font-size: medium;
+                    }
+                    p {
+                        font-size: small;
+                    }
+                }
+                .sts {
+                    h3 {
+                        font-size: 1.0rem;
+                    }
+                    i {
+                        padding: 8px;
+                        font-size: 16px;
+                        width: 35px;
+                        margin: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+
+}
+
+@media (max-width: 895px) {
+    .grid-stack {
+        height: auto !important;
+        .grid-stack-item {
+            position: relative;
+            width: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            margin: 0 0 15px;
+            .grid-stack-item-content {
+                inset: 0 !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 1440.98px) {
+
+}
+
+
+@include media-breakpoint-up(lg) {
+    .h-lg-100 {
+        height: 100% !important;
+    }
+}

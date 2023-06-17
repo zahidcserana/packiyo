@@ -1,0 +1,38 @@
+.custom-pagination {
+    .pagination {
+        li {
+            font-size: 18px;
+            font-weight: 400;
+            border: unset;
+            box-shadow: unset;
+            margin: 0;
+            padding: 0 0.2rem;
+            &.previous, &.next {
+                margin: 0 15px;
+            }
+            &.active {
+                background-color: unset;
+                color: $textBlack;
+                font-weight: 600;
+            }
+            &.page {
+                a {
+                    font-size: 18px;
+                }
+            }
+            a {
+                height: 21px;
+                width: 100%;
+                color: $neutralTextGray;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                &:hover {
+                    color: $textBlack;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

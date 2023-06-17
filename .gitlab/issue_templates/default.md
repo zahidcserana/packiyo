@@ -1,0 +1,8 @@
+- [ ] Feature is implemented
+- [ ] Code is tested locally
+- [ ] Code runs on staging environment
+- [ ] Code is tested on the staging environment
+- [ ] Code complies with PSR-1, PSR-2, PSR-12
+- [ ] Code has no commented out sections
+- [ ] Feature is tested from start to the end, in all possible scenarios.
+- [ ] Developer also tries to figure out additional edge case scenarios, describe them and implement them

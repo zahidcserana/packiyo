@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Iconly---Bold';
+  src:  url('fonts/Iconly---Bold.eot?xu1ta0');
+  src:  url('fonts/Iconly---Bold.eot?xu1ta0#iefix') format('embedded-opentype'),
+    url('fonts/Iconly---Bold.ttf?xu1ta0') format('truetype'),
+    url('fonts/Iconly---Bold.woff?xu1ta0') format('woff'),
+    url('fonts/Iconly---Bold.svg?xu1ta0#Iconly---Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="automagical-"], [class*=" automagical-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Iconly---Bold' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.automagical-location:before {
+  content: "\e90c";
+}
+.automagical-hourglass:before {
+  content: "\e90d";
+}
+.automagical-delivery:before {
+  content: "\e90e";
+}
+.automagical-settings:before {
+  content: "\e94f";
+}
+.automagical-chat:before {
+  content: "\e90b";
+}
+.automagical-calendar:before {
+  content: "\e907";
+}
+.automagical-shipping:before {
+  content: "\e908";
+}
+.automagical-cart:before {
+  content: "\e909";
+}
+.automagical-returning:before {
+  content: "\e90a";
+}
+.automagical-logout:before {
+  content: "\e901";
+}
+.automagical-profile:before {
+  content: "\e900";
+}
+.automagical-bag:before {
+  content: "\e902";
+}
+.automagical-products:before {
+  content: "\e903";
+}
+.automagical-returns:before {
+  content: "\e904";
+}
+.automagical-orders:before {
+  content: "\e905";
+}
+.automagical-dashboard:before {
+  content: "\e906";
+}

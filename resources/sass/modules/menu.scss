@@ -1,0 +1,200 @@
+.navbar-vertical {
+    &.navbar-expand-xs {
+        z-index: 1041;
+    }
+}
+.sidenav {
+    border: unset;
+    box-shadow: none;
+}
+.g-sidenav-hidden {
+    &.g-sidenav-show {
+        .navbar-vertical.navbar-expand-xs.fixed-left {
+            max-width: 60px;
+        }
+        @media (min-width: 1200px) {
+            .navbar-vertical.navbar-expand-xs.fixed-left {
+                max-width: 250px;
+            }
+        }
+    }
+    .navbar-vertical.navbar-expand-xs.fixed-left + .main-content {
+        margin-left: 88px;
+    }
+    .navbar-vertical.navbar-expand-xs.fixed-left {
+        max-width: 90px;
+    }
+    .sidenav {
+        .sidenav-logo-icon {
+            display: block;
+        }
+    }
+}
+.g-sidenav-show {
+    .sidenav {
+        &.fixed-left + .main-content {
+            margin-left: 250px;
+        }
+        .sidenav-logo-icon {
+            display: none;
+        }
+    }
+}
+.sidenav {
+    .sidenav-logo-icon {
+        padding: 0 1.5rem;
+        img {
+            height: 28px;
+        }
+    }
+}
+.active-notify {
+    height: 10px;
+    width: 10px;
+    background-color: $notifyDanger;
+    border-radius: 50%;
+    display: inline-block;
+    left: 12px;
+    top: 0px;
+    border: 2px solid white;
+    box-sizing: content-box;
+}
+.nav-item {
+    .nav-link-text {
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+
+    .nav {
+        .nav-link {
+            &:before {
+                content: '';
+                border-bottom: 2px solid $borderGrey;
+                height: 12px;
+                width: 12px;
+                border-left: 2px solid $borderGrey;
+                border-bottom-left-radius: 8px;
+                margin-bottom: 10px;
+                margin-left: -2px;
+            }
+
+            p {
+                padding-right: 12px;
+                margin: 0;
+                font-size: 15px;
+                line-height: 24px;
+                font-weight: 600;
+                width: 100%;
+
+                &.active_item{
+                    background-color: transparent;
+                    margin-right: 0;
+                    color: $textBlack !important;
+                }
+            }
+
+            padding: 0 !important;
+            margin-left: 60px !important;
+            border-left: 2px solid $borderGrey;
+        }
+    }
+    // Sub-menu
+    &.sub-menu {
+        .nav-link[data-toggle='collapse']:after {
+            padding-right: 1.2rem;
+        }
+        .collapse {
+            .nav {
+                .nav-link {
+                    &:before {
+                        width: 20px;
+                    }
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 400;
+                    padding-top: 0.45rem;
+                    padding-bottom: 0.45rem;
+                    padding-left: 0.45rem;
+                    &.active_item {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .g-sidenav-pinned #sidenav-main.sidenav.navbar {
+        max-width: 350px !important;
+    }
+
+    .third_menu {
+        background-color: white;
+        padding: 10px 20px;
+        left: 100%;
+        border-radius: 12px;
+        box-shadow: 0 0 7px 0px $lightGrey;
+
+        ul {
+            list-style: none;
+
+            li {
+                margin: 0 0 1.5rem 0;
+                &:first-child {
+                    margin-top: 1rem;
+                }
+                &:last-child {
+                    margin-bottom: 1rem;
+                }
+                p{
+                    color: $neutralTextGray;
+                    font-size: 15px;
+                    font-weight: 600;
+
+                    &.active_item{
+                        background-color: transparent;
+                        margin-right: 0;
+                        color: $textBlack !important;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .sidenav:hover {
+            max-width: 350px;
+        }
+    }
+    @media (min-width: 1201px) {
+        &.sub-menu {
+            .nav-link[data-toggle='collapse']:after {
+                display: none !important;
+            }
+            .collapse {
+                display: none !important;
+            }
+        }
+    }
+    .nav-link[aria-expanded='true'] {
+        &:after {
+            color: $logoOrange !important;
+        }
+
+        .nav-link-text {
+            color: $logoOrange !important;
+        }
+
+        i {
+            &::before {
+                color: $logoOrange;
+            }
+
+            &.icon-background {
+                &::before {
+                    color: $formWhite;
+                }
+            }
+        }
+    }
+}

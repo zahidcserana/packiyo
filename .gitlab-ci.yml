@@ -1,0 +1,120 @@
+stages:
+  - deploy
+  - cleanup
+
+.prepare_tools: &prepare_tools
+  - echo "Preparing tools"
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - sudo apt-get update
+  - sudo apt-get install -y rsync
+
+.setup_ssh: &setup_ssh
+  - echo "Setting up SSH"
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+.initial_setup: &initial_setup
+  - echo "Running initial setup"
+  - *prepare_tools
+  - *setup_ssh
+  - sudo chown -R `whoami` .
+
+.install_dependencies: &install_dependencies
+  - echo "Installing dependencies"
+  - yarn install --pure-lockfile
+  - composer install --prefer-dist --no-ansi --no-interaction --no-progress
+
+.migrate_database: &migrate_database
+  - echo "Migrating database"
+  - php artisan migrate --force
+
+.compile_assets: &compile_assets
+  - echo "Compiling assets"
+  - npm run dev
+
+deploy_merge_request:
+  stage: deploy
+  image: thecodingmachine/php:8.1-v4-fpm-node16
+  script:
+    - *initial_setup
+    - *install_dependencies
+    - echo "Preparing configuration"
+    - cp .env.example .env
+    - echo "Preparing database"
+    - sed -i "/^DB_HOST=/c\DB_HOST=$HOST_IP" .env
+    - sed -i "/^DB_DATABASE=/c\DB_DATABASE=testing_$CI_MERGE_REQUEST_ID" .env
+    - sed -i "/^DB_USERNAME=/c\DB_USERNAME=$DB_USERNAME" .env
+    - sed -i "/^DB_PASSWORD=/c\DB_PASSWORD=$DB_PASSWORD" .env
+    - sed -i "/^MAILGUN_DOMAIN=/c\MAILGUN_DOMAIN=$MAILGUN_DOMAIN" .env
+    - sed -i "/^MAILGUN_SECRET=/c\MAILGUN_SECRET=$MAILGUN_SECRET" .env
+    - sed -i "/^GOOGLE_MAPS_API_KEY=/c\GOOGLE_MAPS_API_KEY=$GOOGLE_MAPS_KEY" .env
+    - sed -i "/^GOOGLE_RECAPTCHA_KEY=/c\GOOGLE_RECAPTCHA_KEY=$GOOGLE_RECAPTCHA_KEY" .env
+    - sed -i "/^GOOGLE_RECAPTCHA_SECRET=/c\GOOGLE_RECAPTCHA_SECRET=$GOOGLE_RECAPTCHA_SECRET" .env
+    - ssh $SSH_USERNAME@$HOST_IP "mysql -u $DB_USERNAME -p$DB_PASSWORD -e \"DROP DATABASE IF EXISTS testing_$CI_MERGE_REQUEST_ID;\""
+    - ssh $SSH_USERNAME@$HOST_IP "mysql -u $DB_USERNAME -p$DB_PASSWORD -e \"CREATE DATABASE testing_$CI_MERGE_REQUEST_ID;\""
+    - ssh $SSH_USERNAME@$HOST_IP "mysqldump -u $DB_USERNAME -p$DB_PASSWORD $DB_STAGING_DATABASE > testing_$CI_MERGE_REQUEST_ID.sql"
+    - ssh $SSH_USERNAME@$HOST_IP "mysql -u $DB_USERNAME -p$DB_PASSWORD testing_$CI_MERGE_REQUEST_ID < testing_$CI_MERGE_REQUEST_ID.sql"
+    - *migrate_database
+    - php artisan key:generate
+    - php artisan storage:link --relative
+    - chmod o+x storage
+    - *compile_assets
+    - echo "Deploying"
+    - ssh $SSH_USERNAME@$HOST_IP "mkdir -p httpdocs/$CI_MERGE_REQUEST_ID"
+    - rsync -a . $SSH_USERNAME@$HOST_IP:httpdocs/$CI_MERGE_REQUEST_ID
+    - echo "Deploying storage"
+    - rsync -a $SSH_STAGING_USERNAME@$HOST_IP:$STAGING_PATH/storage/app storage/
+    - rsync -a storage/app $SSH_USERNAME@$HOST_IP:httpdocs/$CI_MERGE_REQUEST_ID/storage/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+  environment:
+    name: review/$CI_MERGE_REQUEST_ID
+    url: https://$CI_MERGE_REQUEST_ID.mr.packiyo.com
+    on_stop: cleanup_merge_request
+    auto_stop_in: 1 week
+  variables:
+    PHP_EXTENSION_BCMATH: 1
+
+deploy_main:
+  stage: deploy
+  image: thecodingmachine/php:8.1-v4-fpm-node16
+  script:
+    - *initial_setup
+    - *install_dependencies
+    - echo "Preparing configuration"
+    - rsync -a $SSH_STAGING_USERNAME@$HOST_IP:$STAGING_PATH/.env .env
+    - echo "Preparing database"
+    - sed -i "/^DB_HOST=/c\DB_HOST=$HOST_IP" .env
+    - *migrate_database
+    - *compile_assets
+    - echo "Deploying"
+    - rsync -a --exclude '.env' . $SSH_STAGING_USERNAME@$HOST_IP:$STAGING_PATH/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_BUILD_REF_NAME == $CI_DEFAULT_BRANCH'
+  environment:
+    name: staging
+    url: $STAGING_URL
+  variables:
+    PHP_EXTENSION_BCMATH: 1
+
+cleanup_merge_request:
+  stage: cleanup
+  image: thecodingmachine/php:8.1-v4-fpm-node16
+  script:
+    - *setup_ssh
+    - echo "Cleaning up"
+    - ssh $SSH_USERNAME@$HOST_IP "mysql -u $DB_USERNAME -p$DB_PASSWORD -e \"DROP DATABASE IF EXISTS testing_$CI_MERGE_REQUEST_ID;\""
+    - ssh $SSH_USERNAME@$HOST_IP "rm testing_$CI_MERGE_REQUEST_ID.sql"
+    - ssh $SSH_USERNAME@$HOST_IP "rm -rf httpdocs/$CI_MERGE_REQUEST_ID"
+  environment:
+    name: review/$CI_MERGE_REQUEST_ID
+    action: stop
+  needs:
+    - deploy_merge_request
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: manual
+      allow_failure: true

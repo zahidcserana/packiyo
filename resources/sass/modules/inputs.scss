@@ -1,0 +1,281 @@
+// Select2 gray select box using in filter modal
+.formsContainer {
+    .smallForm {
+        select:not(.select2-hidden-accessible) {
+            display: none;
+        }
+    }
+}
+
+.select-tags {
+    .select2-container {
+        &.select2-container--focus.select2-container--open {
+            .select2-search--inline {
+                display: block;
+                padding-left: 8px;
+            }
+        }
+    }
+    .select2-container--default {
+        .select2-selection--multiple {
+            .select2-search--inline {
+                .select2-search__field {
+                    margin-top: 0;
+                    line-height: 24px;
+                }
+            }
+            .select2-selection__rendered {
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                align-items: center;
+                .select2-selection__choice {
+                    background-color: $logoOrange;
+                    color: $white;
+                    font-size: 12px;
+                    font-weight: 600;
+                    padding: 5px 9px;
+                    border-radius: 1rem;
+                    line-height: 14px;
+                    margin-right: 2px;
+                    margin-bottom: 2px;
+                    .select2-selection__choice__remove {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+.table-tag {
+    background-color: $logoOrange;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 9px 5px 9px;
+    border-radius: 1rem;
+    line-height: 14px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+}
+.modal {
+    .select-tags {
+        .select2-container {
+            width: 100% !important;
+        }
+        .select2-container--default {
+            .select2-selection--multiple {
+                .select2-search--inline {
+                    .select2-search__field {
+                        margin-bottom: 2px;
+                    }
+                }
+                .select2-selection__rendered {
+                    flex-wrap: wrap-reverse;
+                }
+            }
+        }
+    }
+}
+.select2.select2-container {
+    &.select2-container--focus {
+        &.select2-container--open {
+            .select2-selection--multiple, .select2-selection--single {
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+            &.select2-container--above {
+                .select2-selection--multiple, .select2-selection--single {
+                    border-top-right-radius: 0;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 12px;
+                    border-bottom-right-radius: 12px;
+                }
+            }
+            &.select2-container--below {
+                .select2-selection--multiple, .select2-selection--single {
+                    border-top-right-radius: 12px;
+                    border-top-left-radius: 12px;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+}
+
+.custom-datatable-checkbox-container-header {
+    margin-top: -11px;
+    position: absolute;
+
+    input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+
+        & + label {
+            position: relative;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        & + label:before {
+            content: '';
+            border-radius: 5px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: text-top;
+            width: 24px;
+            height: 24px;
+            border: 2px solid $inputBorder;
+            background: white;
+        }
+
+        &:checked + label:before {
+            background: $logoOrange;
+        }
+
+        &:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 11px;
+            background: white;
+            width: 2px;
+            height: 2px;
+            box-shadow:
+                2px 0 0 white,
+                4px 0 0 white,
+                4px -2px 0 white,
+                4px -4px 0 white,
+                4px -6px 0 white,
+                4px -8px 0 white;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.custom-datatable-checkbox-container {
+    input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+
+        & + label {
+            position: relative;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        & + label:before {
+            content: '';
+            border-radius: 5px;
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: text-top;
+            width: 24px;
+            height: 24px;
+            border: 2px solid $inputBorder;
+            background: white;
+        }
+
+        &:checked + label:before {
+            background: $logoOrange;
+        }
+
+        &:checked + label:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 11px;
+            background: white;
+            width: 2px;
+            height: 2px;
+            box-shadow:
+                2px 0 0 white,
+                4px 0 0 white,
+                4px -2px 0 white,
+                4px -4px 0 white,
+                4px -6px 0 white,
+                4px -8px 0 white;
+            transform: rotate(45deg);
+        }
+    }
+}
+.custom-radio {
+    line-height: 2rem;
+    .custom-control-input {
+        &~.custom-control-label {
+            &::before {
+                width: 1.5rem;
+                height: 1.5rem;
+                color: #fff;
+                border-color: $inputBorder !important;
+            }
+            &:after {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}
+.daterangepicker {
+    td {
+        &.active {
+            background-color: $logoOrange;
+            &:hover {
+                background-color: $logoOrange;
+                box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+                transform: translateY(-1px);
+            }
+        }
+        &.today {
+            background-color: $lightGreyTransparent;
+            color: inherit;
+        }
+    }
+    select {
+        &.monthselect, &.yearselect {
+            &:focus-visible, &:focus {
+                border-color: $logoOrange;
+                outline: 0;
+            }
+        }
+    }
+    .drp-calendar {
+        .calendar-table {
+            &:focus-visible, &:focus {
+                border-color: $logoOrange;
+                outline: 0;
+            }
+        }
+    }
+    .drp-buttons {
+        .btn {
+            &.applyBtn {
+                background-color: $logoOrange;
+                border-color: transparent;
+            }
+            &.cancelBtn {
+                background-color: transparent;
+                color: $textBlack;
+                border-color: $borderGrey;
+            }
+        }
+    }
+}
+
+.select2-container .select2-selection--single,
+.select2-container--default.select2-container--focus .select2-selection--multiple,
+.select2-container--default .select2-selection--multiple,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    font-size: $input-btn-font-size;
+}
+
+.input-container {
+    width: 350px;
+}

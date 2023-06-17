@@ -1,0 +1,27 @@
+
+
+.search_top_container{
+    position:relative;
+}
+
+.global_search_results{
+    top:74px;
+    left:0px;
+    position:absolute;
+    z-index: 999999999;
+    width:80%;
+    box-shadow: 2px 7px 5px 2px #aaaaaa;
+}
+
+.search_item_row{
+
+    border-top: 1px solid #CCCCCC;
+}
+
+#search_close{
+    cursor:pointer;
+}
+
+.search_res_tab{
+    cursor:pointer;
+}

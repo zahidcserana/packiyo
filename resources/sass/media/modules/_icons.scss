@@ -1,0 +1,157 @@
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+
+}
+////////////////////////////////////////////////////////
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+
+}
+
+// XX-Large devices (larger desktops)
+// No media query since the xxl breakpoint has no upper bound on its width
+.nav-link {
+    i {
+        margin-right: 1rem;
+    }
+}
+
+i {
+    &[class^="picon-"] {
+        font-size: 20px;
+    }
+
+    &.icon-lg {
+        width: initial;
+        height: initial;
+        font-size: 24px;
+    }
+
+    &.icon-xl {
+        font-size: 30px;
+    }
+
+    &.icon-2xl {
+        font-size: 40px;
+    }
+
+    &.icon-white {
+        &:before {
+            color: #fff;
+        }
+    }
+
+    &.icon-black {
+        &:before {
+            color: #0a0c0d;
+        }
+    }
+
+    &.icon-gray {
+        &:before {
+            color: #D1CDCD;
+        }
+    }
+
+    &.icon-orange {
+        &:before {
+            color: $logoOrange;
+        }
+    }
+
+    &.icon-red {
+        &:before {
+            color: $notifyDanger;
+        }
+    }
+
+    &[data-toggle="modal"] {
+        cursor: pointer;
+    }
+}
+
+
+.sidenav {
+    .nav-link {
+        &[aria-expanded=true] {
+            i {
+                &[class^="picon-"] {
+                    &:hover {
+                        &:before {
+                            color: $logoOrange;
+                        }
+                    }
+                }
+            }
+            i {
+                &.bg-logoOrange {
+                    &[class^="picon-"] {
+                        &:hover {
+                            &:before {
+                                color: $formWhite;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        i {
+            &.bg-logoOrange {
+                &[class^="picon-"] {
+                    &:hover {
+                        &:before {
+                            color: $formWhite;
+                        }
+                    }
+                }
+            }
+            &[class^="picon-"] {
+                &:hover {
+                    &:before {
+                        color: $neutralTextGray;
+                    }
+                }
+            }
+        }
+    }
+}
