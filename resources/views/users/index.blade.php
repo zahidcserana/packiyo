@@ -20,6 +20,11 @@
 
 @push('js')
     <script>
+     Echo.channel('prints')
+        .listen('NewPrint', (e) => {
+            console.log(e.print);
+        })
+
         new User()
     </script>
 @endpush
